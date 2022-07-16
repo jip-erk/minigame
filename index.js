@@ -1,5 +1,8 @@
 var x = document.getElementById("text");
 
+
+let n = 0;
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -9,9 +12,11 @@ function getLocation() {
 }
 
 //create interval to call getLocation function every 5 seconds
-setInterval(getLocation, 1000);
+
 
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
+        "<br>Longitude: " + position.coords.longitude + " (" + n++ + ")";
 }
+
+//if button is pressed call getLocation function
